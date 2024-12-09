@@ -23,3 +23,5 @@ const generatePyramid = (character, rows) => {
 // how to use
 console.log(generatePyramid(character, totalRows));
 
+
+
