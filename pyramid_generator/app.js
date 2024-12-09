@@ -1,7 +1,7 @@
-const character = "#";
-const count = 8;
+const character = "*";
+const count = 10;
 const rows = [];
-let inverted = true;
+let inverted = false;
 
 // in order to know how to format a row
 // the padRow func will need to know which
@@ -17,7 +17,7 @@ const padRow = (rowNumber, rowCount) => {
 
 // todo: use a different type of loop
 for (let i = 1; i <= count; i++) {
-  // an off-by-one error is encountered here
+
   // because, the i in the for loop is initialized with 0
   // but the string repeat method requires an integer as the second argument
   // so, it repeats the character i times, not i+1 times
