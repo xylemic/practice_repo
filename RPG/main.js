@@ -134,7 +134,7 @@ function buyWeapon() {
 
       inventory.push(newWeapon);
       // console.log(inventory);
-      text.innerText += " In your inventory you have: " + inventory + ".";
+      text.innerText += " In your inventory you have: " + inventory.join(", ") + ".";
     } else {
       text.innerText = "You don't have enough gold to buy a weapon.";
     }
