@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin: 20px;
+  background-color: #f4f4f9;
+}
+
+h1 {
+  color: #4caf50;
+}
+
+input, button {
+  padding: 10px;
+  font-size: 1rem;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input {
+  width: 60%;
+  max-width: 300px;
+}
+
+button {
+  background: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+#result {
+  font-weight: bold;
+  margin: 20px auto 0 auto;
+  font-size: 1.1rem;
+  padding: 10px;
+  border-radius: 5px;
+  width: 60%;
+  max-width: 300px;
+}
+
+.palindrome {
+  color: #4caf50;
+  background: #e8f5e9;
+}
+
+.not-palindrome {
+  color: #f44336;
+  background: #ffebee;
+}
+
+.button-clear {
+  background: #f44336;
+  color: #fff;
+}
+
+.button-clear:hover {
+  background: #e53935;
+}
