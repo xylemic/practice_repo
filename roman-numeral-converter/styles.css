@@ -1,0 +1,67 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #003;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.container, #output {
+  background: rgba(255, 255, 255, .2);
+  width: 500px;
+  max-width: 70%;
+  margin: 100px auto 0 auto;
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  font-size: inherit;
+  text-align: center;
+}
+
+input[type="number"] {
+  width: 80%;
+  padding: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  font-family: inherit;
+  border-radius: 15px;
+  border: 3px solid #4caf50;
+}
+
+input[type="number"]::placeholder {
+  color: #ccc;
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-weight: lighter;
+  font-style: italic;
+  text-transform: lowercase;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border: 3px solid #4caf50;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  background: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 85%;
+}
+
+#output {
+  margin-top: 15px;
+  display: none;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+
