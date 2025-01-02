@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spam Checker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="main-text">
+      <h1 class="title">is this spam?</h1>
+      <p class="description">
+        enter a phrase to check if it would be marked as spam or not.
+      </p>
+    </header>
+    <main>
+      <label for="message-input" class="message-label">message: </label>
+      <textarea
+        name="message"
+        id="message-input"
+        value=""
+        type="text"
+        rows="10"
+        cols="40"
+        placeholder="enter message here"
+      ></textarea>
+      <button class="btn" id="check-message-btn" type="button">
+        check message
+      </button>
+      <p id="result"></p>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
