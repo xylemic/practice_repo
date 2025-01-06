@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 class="title">desserts page</h1>
+  </header>
+  <main>
+    <button class="btn" id="cart-btn" type="button">
+      <span id="show-hide-cart">show</span> cart
+    </button>
+    <div id="cart-container">
+      <button class="btn" id="clear-cart-btn">clear cart</button>
+      <div id="products-container"></div>
+      <p>total number of items: <span id="total-items">0</span></p>
+      <p>subtotal: <span id="subtotal">$0</span></p>
+      <p>taxes: <span id="taxes">$0</span></p>
+      <p>total: <span id="total">$0</span></p>
+    </div>
+    <div id="dessert-card-container"></div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
