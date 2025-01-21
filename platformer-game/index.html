@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platformer Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="start__screen">
+      <h1 class="main__title">code warrior</h1>
+      <p class="instructions">
+        help the main player navigate to the yellow checkpoints.
+      </p>
+      <p class="instructions">
+        use the keyboard arrows to move the player around.
+      </p>
+      <p class="instructions">you can also use the spacebar to jump.</p>
+      <div class="btn__container">
+        <button class="btn" id="start-btn">start game</button>
+      </div>
+    </div>
+    <div class="checkpoint__screen">
+      <h2>congrats!</h2>
+      <p>you reached the last checkpoint.</p>
+    </div>
+    <canvas id="canvas"></canvas>
+    <script src="index.js"></script>
+  </body>
+</html>
