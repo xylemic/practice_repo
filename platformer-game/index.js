@@ -1,8 +1,11 @@
+// constants and canvas setup
 const startBtn = document.getElementById('start-btn');
 const canvas = document.getElementById('canvas');
 const startScreen = document.querySelector('.start__screen');
 const checkpointScreen = document.querySelector('.checkpoint__screen');
 const checkpointMessage = document.querySelector('.checkpoint__screen > p');
+const timerDisplay = document.getElementById('timer');
+const scoreDisplay = document.getElementById('score');
 
 const ctx = canvas.getContext('2d');
 canvas.width = innerWidth;
@@ -10,11 +13,22 @@ canvas.height = innerHeight;
 
 const gravity = 0.5;
 let isCheckpointCollisionDetectionActive = true;
+let timer = 0;
+let score = 0;
+let gameInterval;
 
+// utility function
 const proportionalSize = (size) => {
   return innerHeight < 500 ? Math.ceil((size / 500) * innerHeight) : size;
 };
 
+const formatTime = (seconds) => {
+  const minutes = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+};
+
+// classes
 class Player {
   constructor() {
     this.position = {
@@ -27,10 +41,11 @@ class Player {
     };
     this.width = proportionalSize(40);
     this.height = proportionalSize(40);
+    this.color = '#e94560';
   }
 
   draw() {
-    ctx.fillStyle = '#99c9ff';
+    ctx.fillStyle = this.color;
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 
@@ -69,10 +84,11 @@ class Platform {
     };
     this.width = 200;
     this.height = proportionalSize(40);
+    this.color = '#0f3460';
   }
 
   draw() {
-    ctx.fillStyle = '#acd157';
+    ctx.fillStyle = this.color;
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 }
@@ -86,10 +102,11 @@ class CheckPoint {
     this.width = proportionalSize(40);
     this.height = proportionalSize(70);
     this.claimed = false;
+    this.color = '#f9d71c';
   }
 
   draw() {
-    ctx.fillStyle = '#f1be32';
+    ctx.fillStyle = this.color;
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 
@@ -98,11 +115,14 @@ class CheckPoint {
     this.height = 0;
     this.position.y = Infinity;
     this.claimed = true;
+    score += 100;
+    scoreDisplay.textContent = score;
   }
 }
 
-const player = new Player();
 
+// initialization
+const player = new Player();
 const platformPositions = [
   { x : 500, y : proportionalSize(450) },
   { x : 700, y : proportionalSize(400) },
@@ -274,4 +294,40 @@ window.addEventListener('keydown', ({ key }) => {
 window.addEventListener('keyup', ({ key }) => {
   movePlayer(key, 0, false);
 });
+
+
+// references to directional controls
+const directionControls = document.createElement('div');
+directionControls.className = 'direction__controls';
+directionControls.innerHTML = `
+  <button class="control__btn" id="btn-up">↑</button>
+  <div class="horizontal__controls">
+    <button class="control__btn" id="btn-left">←</button>
+    <button class="control__btn" id="btn-right">→</button>
+  </div>
+`;
+document.body.appendChild(directionControls);
+
+const btnUp = document.getElementById('btn-up');
+const btnLeft = document.getElementById('btn-left');
+const btnRight = document.getElementById('btn-right');
+
+// toggle directional controls visibility based on screen width
+const toggleControlsVisibility = () => {
+  if (window.innerWidth <= 767) {
+    directionControls.style.display = 'flex';
+  } else {
+    directionControls.style.display = 'none';
+  }
+};
+toggleControlsVisibility();
+window.addEventListener('resize', toggleControlsVisibility);
+
+// attach event listeners to directional btns
+btnUp.addEventListener('mousedown', () => movePlayer('ArrowUp', 0, true));
+btnUp.addEventListener('mouseup', () => movePlayer('ArrowUp', 0, false));
+btnLeft.addEventListener('mousedown', () => movePlayer('ArrowLeft', 8, true));
+btnLeft.addEventListener('mouseup', () => movePlayer('ArrowLeft', 0, false));
+btnRight.addEventListener('mousedown', () => movePlayer('ArrowRight', 8, true));
+btnRight.addEventListener('mouseup', () => movePlayer('ArrowRight', 0, false));
 
