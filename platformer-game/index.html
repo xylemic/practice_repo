@@ -8,23 +8,35 @@
   </head>
   <body>
     <div class="start__screen">
-      <h1 class="main__title">code warrior</h1>
+      <h1 class="main__title">adventure platformer</h1>
       <p class="instructions">
-        help the main player navigate to the yellow checkpoints.
+        navigate the player to checkpoints while avoiding obstatcles and
+        collecting power-ups.
       </p>
-      <p class="instructions">
-        use the keyboard arrows to move the player around.
-      </p>
+      <p class="instructions">use arrow keys to move and spacebar to jump.</p>
       <p class="instructions">you can also use the spacebar to jump.</p>
       <div class="btn__container">
         <button class="btn" id="start-btn">start game</button>
       </div>
     </div>
+
+    <!-- checkpoint  screen -->
     <div class="checkpoint__screen">
-      <h2>congrats!</h2>
-      <p>you reached the last checkpoint.</p>
+      <h2>checkpoint reached!</h2>
+      <p>congratulations! keep going to reach the final goal!</p>
     </div>
+
+    <!-- timer and score display -->
+    <div class="hud">
+      <p>time: <span id="timer">00:00</span></p>
+      <p>score: <span id="score">0</span></p>
+    </div>
+
+    <!-- game canvas -->
     <canvas id="canvas"></canvas>
+
+    <!-- directional controls for mobile/tablets -->
+    <div class="direction__controls" id="direction-controls"></div>
     <script src="index.js"></script>
   </body>
 </html>
